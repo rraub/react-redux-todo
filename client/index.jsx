@@ -3,21 +3,21 @@
  *
  * This is the entry point for the app
  */
-import React from 'react'
+import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import todoApp from './reducers'
-import App from './components/App'
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import todoApp from './reducers';
+import App from './components/App';
 
-let store = createStore(todoApp)
+let store = createStore(todoApp);
 
 const render = () => {
-	ReactDOM.render(
-	  <Provider store={store}>
-	    <App />
-	  </Provider>,
-	  document.getElementById('render-target')
+  ReactDOM.render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    document.getElementById('render-target')
   );
 };
 
