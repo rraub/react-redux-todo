@@ -6,11 +6,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 import todoApp from './reducers';
 import App from './components/App';
+import { store } from './stores';
 
-let store = createStore(todoApp);
 
 const render = () => {
   ReactDOM.render(
