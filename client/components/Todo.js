@@ -2,11 +2,11 @@ import React, { PropTypes } from 'react';
 
 const Todo = ({ onClick, completed, text }) => (
   <li>
-    <label 
+    <label
       style={{
         textDecoration: completed ? 'line-through' : 'none'
       }}
-    ><input 
+    ><input
         type="checkbox"
         onChange={onClick}
         checked={completed}
