@@ -10,7 +10,7 @@ const reducer = compose(
 )(todoApp);
 
 const storage = compose(
-  filter('todos')
+  filter(['todos', 'visibilityFilter'])
 )(adapter(window.localStorage));
 
 const createPersistentStore = compose(
