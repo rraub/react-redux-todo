@@ -1,7 +1,26 @@
-import {createStore} from 'redux';
+import {compose, createStore} from 'redux';
 import todoApp from '../reducers';
-// let store = createStore(todoApp);
-let store = createStore(todoApp, window.STATE_FROM_SERVER);
+
+import persistState, {mergePersistedState} from 'redux-localstorage';
+import adapter from 'redux-localstorage/lib/adapters/localStorage';
+import filter from 'redux-localstorage-filter';
+
+const reducer = compose(
+  mergePersistedState()
+)(todoApp);
+
+const storage = compose(
+  filter('todos')
+)(adapter(window.localStorage));
+
+const createPersistentStore = compose(
+  persistState(storage, 'redux-localstorage')
+)(createStore);
+
+ 
+const store = createPersistentStore(reducer);
+
+// let store = createStore(todoApp, window.STATE_FROM_SERVER);
 const dispatch = store.dispatch;
 
 // export default store;
