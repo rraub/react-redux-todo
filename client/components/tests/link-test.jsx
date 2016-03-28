@@ -7,10 +7,10 @@ import { default as Link } from '../Link.js';
 
 describe('The Link item', () => {
 
-  let on_click_function = () => {};
+  let onClickFunction = () => {};
 
   it( 'shows its text', () => {
-    const wrapper = shallow(<Link onClick={on_click_function} children={'baby'} active={true}  />);
+    const wrapper = shallow(<Link onClick={onClickFunction} children={'baby'} active={true} />);
     expect(wrapper.contains('baby')).to.equal(true);
   });
 
